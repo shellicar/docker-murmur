@@ -1,0 +1,13 @@
+version: '2'
+services:
+    murmur:
+        build: .
+        ports:
+        - "64104:64104"
+        - "64104:64104/udp"
+        container_name: murmur
+        restart: always
+        volumes:
+        - /usr/local/share/murmur/murmur.ini:/etc/murmur.ini:ro
+        - /usr/local/share/murmur/murmur.sqlite:/home/murmur/murmur.sqlite
+        - /etc/localtime:/etc/localtime:ro
